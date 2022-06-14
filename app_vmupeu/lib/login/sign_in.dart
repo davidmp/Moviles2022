@@ -1,4 +1,3 @@
-
 import 'package:google_sign_in/google_sign_in.dart';
 
 GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
@@ -8,9 +7,9 @@ String email;
 String imageUrl;
 
 Future<String> signInWithGoogle() async {
-  try{
+  try {
     await _googleSignIn.signIn();
-  } catch (err){
+  } catch (err) {
     print(err);
     print("Error al ingresar");
   }

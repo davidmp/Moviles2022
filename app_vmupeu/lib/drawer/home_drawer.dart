@@ -2,7 +2,7 @@ import 'package:app_vmupeu/drawer/app_theme.dart';
 import 'package:app_vmupeu/login/login_google.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:app_vmupeu/login/sing_in.dart';
+import 'package:app_vmupeu/login/sign_in.dart';
 
 class HomeDrawer extends StatefulWidget {
   const HomeDrawer(
@@ -107,7 +107,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
 
                             child: CircleAvatar(
                               backgroundImage: NetworkImage(
-                                urlfoto,
+                                imageUrl,
                               ),
                               radius: 40,
                               backgroundColor: Colors.transparent,
@@ -125,7 +125,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
                   Padding(
                     padding: const EdgeInsets.only(top: 8, left: 4),
                     child: Text(
-                      nombre + " " + email,
+                      name + " " + email,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
