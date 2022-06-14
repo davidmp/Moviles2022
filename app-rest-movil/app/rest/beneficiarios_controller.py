@@ -7,11 +7,11 @@ from flask_jwt import jwt_required
 from bson.objectid import ObjectId
 import uuid
 
-@app.route("/api/persona")
-def listarPersona():
+@app.route("/api/beneficiario")
+def listarBeneficiario():
     #data = list(mongo.db.persona.find({}, {"_id": False}))
     #data = list(mongo.db.persona.find_and_replace({},{"_id": "id"}))
-    data = list(mongo.db.persona.find({}))
+    data = list(mongo.db.beneficiario.find({}))
     #data=list(map(lambda person:{'id' if key=="_id" else key: val for key, val in person.items()}, data)) # Activar Android Nativo
     #print(online_users)
     print("Holasss")
@@ -21,10 +21,10 @@ def listarPersona():
         mimetype="application/json"
     )    
 
-@app.route("/api/persona/<string:id>")
+@app.route("/api/beneficiario/<string:id>")
 @jwt_required()
-def listarPersonaId(id):
-    data = list(mongo.db.persona.find({"_id": ObjectId(id)}))
+def listarBeneficiarioId(id):
+    data = list(mongo.db.beneficiario.find({"_id": ObjectId(id)}))
     #print(online_users)
     print("Holasss")
     return Response(
@@ -34,9 +34,9 @@ def listarPersonaId(id):
     )
 
 
-@app.route("/api/persona/crear",methods=["POST"])
+@app.route("/api/beneficiario/crear",methods=["POST"])
 @jwt_required()
-def crear():
+def crearBeneficiario():
     try:
         #u = uuid.uuid1()
         _json=request.json
@@ -45,7 +45,7 @@ def crear():
         #del _json["id"] #Activar para android Nativo
         print(_json)
         #_json["_id"]=uuid.uuid1()
-        dbResponse=mongo.db.persona.insert_one(_json)
+        dbResponse=mongo.db.beneficiario.insert_one(_json)
         
         print(dbResponse.inserted_id)
         return Response(
@@ -69,14 +69,14 @@ def crear():
             mimetype="application/json"
         )
     
-@app.route("/api/personau/<string:id>", methods=["PATCH"])
+@app.route("/api/beneficiariou/<string:id>", methods=["PATCH"])
 @jwt_required()
-def update(id):
+def actualizarBeneficiario(id):
     print(id)
     _json=request.json
     print("VER:",_json["nombre"])
     try:
-        dbResponse = mongo.db.persona.update_one(
+        dbResponse = mongo.db.beneficiario.update_one(
         {"_id": ObjectId(id)},
         {"$set": {"nombre": _json["nombre"]}}
         )
@@ -98,13 +98,13 @@ def update(id):
         status=500,
         mimetype="application/json")
 
-@app.route("/api/personaut/<string:id>", methods=["PATCH"])
-def update_two(id):
+@app.route("/api/beneficiariout/<string:id>", methods=["PATCH"])
+def actualizarBeneficairioDos(id):
     print(id)
     _json=request.json
     print("VER:",_json["nombre"])
     try:
-        dbResponse = mongo.db.persona.update_one(
+        dbResponse = mongo.db.beneficiario.update_one(
         {"_id": ObjectId(id)},
         {"$set": _json}
         )
@@ -128,11 +128,11 @@ def update_two(id):
         )
 
 
-@app.route("/api/persona/<string:id>", methods=["DELETE"])
+@app.route("/api/beneficiario/<string:id>", methods=["DELETE"])
 #@jwt_required()
-def delete(id):
+def eliminarBeneficiario(id):
     try:
-        dbResponse = mongo.db.persona.delete_one({"_id": ObjectId(id)})
+        dbResponse = mongo.db.beneficiario.delete_one({"_id": ObjectId(id)})
         if dbResponse.deleted_count == 1:
             return Response(
             response=json.dumps({"mensaje": "Deleted!!", "id": f"{id}"}, default=str),

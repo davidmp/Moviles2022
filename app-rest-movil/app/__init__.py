@@ -46,6 +46,6 @@ app.register_blueprint(userBp)
 from flask_restful import Api
 
 # Restfull api
-from app.rest import controller
+from app.rest import controller, beneficiarios_controller
 api=Api(app)
 
