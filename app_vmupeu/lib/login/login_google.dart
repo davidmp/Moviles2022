@@ -24,7 +24,8 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Image(
-                  image: AssetImage("assets/img_contacto.png"), height: 200.0),
+                  image: AssetImage("assets/imagen/logo_upeu.png"),
+                  height: 200.0),
               //FlutterLogo(size: 150),
               SizedBox(height: 50),
               _signInButton(),
@@ -60,11 +61,12 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image(image: AssetImage("assets/google_logo.png"), height: 35.0),
+            Image(
+                image: AssetImage("assets/imagen/man-icon.png"), height: 35.0),
             Padding(
               padding: const EdgeInsets.only(left: 10),
               child: Text(
-                'Ingresar SysCovid',
+                'Ingresar VinMenX',
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.grey,

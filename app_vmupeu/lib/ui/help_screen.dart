@@ -34,7 +34,7 @@ class _HelpScreenState extends State<HelpScreen> {
                     top: MediaQuery.of(context).padding.top,
                     left: 16,
                     right: 16),
-                child: Image.asset('assets/images/helpImage.png'),
+                child: Image.asset('assets/imagen/user-login-icon.png'),
               ),
               Container(
                 padding: const EdgeInsets.only(top: 8),

@@ -1,0 +1,113 @@
+{
+  "project_info": {
+    "project_number": "369096488792",
+    "project_id": "movillogin-6b600",
+    "storage_bucket": "movillogin-6b600.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369096488792:android:f786d0fdb30daf30f9572d",
+        "android_client_info": {
+          "package_name": "pe.edu.upeu.app_moviles"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369096488792-aaqe44f1bq5ktaab6686nvilk8ivhbsd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pe.edu.upeu.app_moviles",
+            "certificate_hash": "79aff25ddbadbd452f07ade090030afa17f5f630"
+          }
+        },
+        {
+          "client_id": "369096488792-57j7rl7thslq5dna3i9ll3ak5vgufh2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKruTxyOkSFoR8f2AI0qlcO1_bxXRZIcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369096488792-57j7rl7thslq5dna3i9ll3ak5vgufh2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369096488792:android:08d895684794030bf9572d",
+        "android_client_info": {
+          "package_name": "pe.edu.upeu.app_vmupeu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369096488792-57j7rl7thslq5dna3i9ll3ak5vgufh2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKruTxyOkSFoR8f2AI0qlcO1_bxXRZIcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369096488792-57j7rl7thslq5dna3i9ll3ak5vgufh2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:369096488792:android:cbbe665895a2f0f9f9572d",
+        "android_client_info": {
+          "package_name": "pe.edu.upeu.app_vmupeux"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "369096488792-sp8p9modhu2bnct30k76ic5tmhjr3u4o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pe.edu.upeu.app_vmupeux",
+            "certificate_hash": "1c8d3dac2bf0d145d8e8dbcd3df605f5510f6d78"
+          }
+        },
+        {
+          "client_id": "369096488792-57j7rl7thslq5dna3i9ll3ak5vgufh2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKruTxyOkSFoR8f2AI0qlcO1_bxXRZIcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "369096488792-57j7rl7thslq5dna3i9ll3ak5vgufh2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
