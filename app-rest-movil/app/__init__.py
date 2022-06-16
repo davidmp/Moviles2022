@@ -2,6 +2,7 @@ from flask import Flask
 #from flask_pymongo import pymongo
 from flask_mongoengine import MongoEngine
 import datetime
+from datetime import timedelta
 
 app = Flask(__name__)
 
@@ -13,6 +14,7 @@ app.config["SECRET_KEY"]="super-secret"
 #app.config["JWT_ACCESS_TOKEN_EXPIRES"] = datetime.timedelta(minutes=60)
 #app.config["JWT_REFRESH_TOKEN_EXPIRES"] = datetime.timedelta(days=7)
 app.config["JWT_AUTH_URL_RULE"]="/api/auth"
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
 
 
 
