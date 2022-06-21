@@ -84,21 +84,22 @@ class _BeneficiarioApi implements BeneficiarioApi {
 
   @override
   deleteBeneficiario(id) async {
-    final prefs = await SharedPreferences.getInstance();
-    var tokenx = prefs.getString("token");
+    /*final prefs = await SharedPreferences.getInstance();
+    var tokenx = prefs.getString("token");*/
     ArgumentError.checkNotNull(id, '0');
+    print("ID:" + id);
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final Response<Map<String, dynamic>> _result = await _dio.request(
-        '/api/beneficiario/$id',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'DELETE',
-            headers: <String, dynamic>{"Authorization": tokenx},
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
+    final Response<Map<String, dynamic>> _result =
+        await _dio.request('/api/beneficiario/$id',
+            queryParameters: queryParameters,
+            options: RequestOptions(
+                method: 'DELETE',
+                //headers: <String, dynamic>{"Authorization": tokenx},
+                extra: _extra,
+                baseUrl: baseUrl),
+            data: _data);
     final value = MsgModel.fromJson(_result.data);
     return Future.value(value);
   }

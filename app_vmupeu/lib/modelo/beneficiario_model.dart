@@ -22,7 +22,7 @@ class BeneficiarioModel {
 
   factory BeneficiarioModel.fromJson(Map<String, dynamic> map) {
     return BeneficiarioModel(
-      id: map['id'],
+      id: map['_id'],
       dni: map['dni'],
       nombre: map['nombre'],
       apellidos: map['apellidos'],
@@ -36,7 +36,7 @@ class BeneficiarioModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
+      '_id': id,
       'dni': dni,
       'nombre': nombre,
       'apellidos': apellidos,

@@ -32,7 +32,7 @@ class _HomeDrawerState extends State<HomeDrawer> {
     drawerList = <DrawerList>[
       DrawerList(
         index: DrawerIndex.HOME,
-        labelName: 'Persona',
+        labelName: 'Beneficiario',
         icon: Icon(Icons.home),
       ),
       DrawerList(
