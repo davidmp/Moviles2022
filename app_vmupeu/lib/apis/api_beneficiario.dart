@@ -9,7 +9,7 @@ import 'package:dio/dio.dart' hide Headers;
 import 'dart:io';
 import 'package:shared_preferences/shared_preferences.dart';
 
-part 'api_persona.g.dart';
+part 'api_beneficiario.g.dart';
 
 @RestApi(baseUrl: "http://192.168.1.143:6060")
 abstract class BeneficiarioApi {

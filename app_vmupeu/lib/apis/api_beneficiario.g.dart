@@ -1,4 +1,4 @@
-part of 'api_persona.dart';
+part of 'api_beneficiario.dart';
 
 class _BeneficiarioApi implements BeneficiarioApi {
   _BeneficiarioApi(this._dio, {this.baseUrl}) {
@@ -18,16 +18,17 @@ class _BeneficiarioApi implements BeneficiarioApi {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final Response<List<dynamic>> _result = await _dio.request('/api/persona',
-        queryParameters: queryParameters,
-        options: RequestOptions(
-            method: 'GET',
-            headers: <String, dynamic>{
-              /*"Authorization":tokenx*/
-            },
-            extra: _extra,
-            baseUrl: baseUrl),
-        data: _data);
+    final Response<List<dynamic>> _result =
+        await _dio.request('/api/beneficiario',
+            queryParameters: queryParameters,
+            options: RequestOptions(
+                method: 'GET',
+                headers: <String, dynamic>{
+                  /*"Authorization":tokenx*/
+                },
+                extra: _extra,
+                baseUrl: baseUrl),
+            data: _data);
     var value = _result.data
         .map((dynamic i) =>
             BeneficiarioModel.fromJson(i as Map<String, dynamic>))
@@ -43,7 +44,7 @@ class _BeneficiarioApi implements BeneficiarioApi {
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final Response<List<dynamic>> _result = await _dio.request(
-        '/api/persona/$id',
+        '/api/beneficiario/$id',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
@@ -90,7 +91,7 @@ class _BeneficiarioApi implements BeneficiarioApi {
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final Response<Map<String, dynamic>> _result = await _dio.request(
-        '/api/persona/$id',
+        '/api/beneficiario/$id',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'DELETE',
@@ -103,15 +104,15 @@ class _BeneficiarioApi implements BeneficiarioApi {
   }
 
   @override
-  updateBeneficiario(id, persona) async {
+  updateBeneficiario(id, beneficiario) async {
     ArgumentError.checkNotNull(id, '0');
-    ArgumentError.checkNotNull(persona, 'persona');
+    ArgumentError.checkNotNull(beneficiario, 'beneficiario');
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(persona.toJson() ?? <String, dynamic>{});
+    _data.addAll(beneficiario.toJson() ?? <String, dynamic>{});
     final Response<Map<String, dynamic>> _result = await _dio.request(
-        '/api/personaut/$id',
+        '/api/beneficiariout/$id',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'PATCH',
@@ -124,16 +125,16 @@ class _BeneficiarioApi implements BeneficiarioApi {
   }
 
   @override
-  createBeneficiario(persona) async {
-    ArgumentError.checkNotNull(persona, 'persona');
+  createBeneficiario(beneficiario) async {
+    ArgumentError.checkNotNull(beneficiario, 'beneficiario');
     final prefs = await SharedPreferences.getInstance();
     var tokenx = prefs.getString("token");
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    _data.addAll(persona.toJson() ?? <String, dynamic>{});
+    _data.addAll(beneficiario.toJson() ?? <String, dynamic>{});
     final Response<Map<String, dynamic>> _result = await _dio.request(
-        '/api/persona/crear',
+        '/api/beneficiario/crear',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'POST',
