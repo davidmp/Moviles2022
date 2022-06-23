@@ -42,9 +42,9 @@ def crearBeneficiario():
         _json=request.json
         data_format=datetime.datetime.strptime(_json["fecha_nac"],'%Y-%m-%d')
         _json["fecha_nac"]=data_format
-        #del _json["id"] #Activar para android Nativo
+        del _json["id"] #Activar para android Nativo
         print(_json)
-        _json["_id"]=uuid.uuid1()
+        #_json["_id"]=uuid.uuid1()
         dbResponse=mongo.db.beneficiario.insert_one(_json)
         
         print(dbResponse.inserted_id)
@@ -135,6 +135,7 @@ def actualizarBeneficairioDos(id):
 @app.route("/api/beneficiario/<string:id>", methods=["DELETE"])
 #@jwt_required()
 def eliminarBeneficiario(id):
+    print(id)
     try:
         dbResponse = mongo.db.beneficiario.delete_one({"_id": ObjectId(id)})
         if dbResponse.deleted_count == 1:

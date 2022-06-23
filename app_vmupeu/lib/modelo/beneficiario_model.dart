@@ -36,7 +36,7 @@ class BeneficiarioModel {
 
   Map<String, dynamic> toJson() {
     return {
-      '_id': id,
+      'id': id,
       'dni': dni,
       'nombre': nombre,
       'apellidos': apellidos,
