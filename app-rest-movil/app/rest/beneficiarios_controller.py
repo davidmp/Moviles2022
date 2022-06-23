@@ -44,7 +44,7 @@ def crearBeneficiario():
         _json["fecha_nac"]=data_format
         #del _json["id"] #Activar para android Nativo
         print(_json)
-        #_json["_id"]=uuid.uuid1()
+        _json["_id"]=uuid.uuid1()
         dbResponse=mongo.db.beneficiario.insert_one(_json)
         
         print(dbResponse.inserted_id)
@@ -75,6 +75,7 @@ def actualizarBeneficiario(id):
     print(id)
     _json=request.json
     print("VER:",_json["nombre"])
+
     try:
         dbResponse = mongo.db.beneficiario.update_one(
         {"_id": ObjectId(id)},
@@ -100,8 +101,11 @@ def actualizarBeneficiario(id):
 
 @app.route("/api/beneficiariout/<string:id>", methods=["PATCH"])
 def actualizarBeneficairioDos(id):
-    print(id)
+    print(id)    
     _json=request.json
+    _json["_id"]=ObjectId(id)
+    print(_json)
+    print(ObjectId(id))
     print("VER:",_json["nombre"])
     try:
         dbResponse = mongo.db.beneficiario.update_one(

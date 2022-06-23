@@ -1,7 +1,27 @@
+import 'package:app_vmupeu/apis/api_beneficiario.dart';
 import 'package:app_vmupeu/drawer/navigation_home_screen.dart';
 import 'package:app_vmupeu/login/sign_in.dart';
+import 'package:app_vmupeu/modelo/usuario_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+class MainLogin extends StatelessWidget{
+
+  @override
+  Widget build(BuildContext context) {
+    return Provider<BeneficiarioApi>(create: (_)=>BeneficiarioApi.create(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primaryColor: Colors.blue),
+        home: LoginPage(),
+      ),
+
+    );
+  }
+
+}
 
 class LoginPage extends StatefulWidget {
   @override
@@ -12,6 +32,9 @@ class _LoginPageState extends State<LoginPage> {
   bool _isLoggedIn = false;
 
   GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+
+  var token;
+
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +59,26 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _signInButton() {
+  Widget _signInButton(){
     return OutlinedButton(
+
       //splashColor: Colors.grey,
       onPressed: () async {
+        final prefs= await SharedPreferences.getInstance();
+
         signInWithGoogle().then((result) {
           if (result != null) {
+            final api=Provider.of<BeneficiarioApi>(context,listen: false);
+            final user=UsuarioModel();
+            user.username="davidmp";
+            user.password="A123456m";
+            api.login(user).then((value){
+              token="JWT "+value.access_token;
+              prefs.setString("token", token);
+              print(token);
+            }).catchError((onError){
+              print(onError.toString());
+            });
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) {
@@ -49,6 +86,8 @@ class _LoginPageState extends State<LoginPage> {
                 },
               ),
             );
+          }else{
+            print("Errro!!");
           }
         });
       },
