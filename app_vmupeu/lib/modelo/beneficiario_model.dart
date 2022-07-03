@@ -47,4 +47,42 @@ class BeneficiarioModel {
       'direccion': direccion,
     };
   }
+
+  Map<String, dynamic> toMap() {
+    var map = Map<String,
+        dynamic>();
+    map["dni"] = dni;
+    map["nombre"] = nombre;
+    map["apellidos"] = apellidos;
+    map["genero"] = genero;
+    map["fecha_nac"] = fechaNac;
+    map["telefono"] = telefono;
+    map["correo"] = correo;
+    map["direccion"] = direccion;
+    if (id != null) {
+      map["id"] = id;
+    }
+    return map;
+  }
+
+  BeneficiarioModel.fromObject(dynamic o)
+  {
+    this.id = o["id"].toString();
+    this.dni = o["dni"];
+    this.nombre = o["nombre"];
+    this.apellidos = o["apellidos"];
+    this.genero = o["genero"];
+    this.fechaNac = o["fecha_nac"];
+    this.telefono = o["telefono"];
+    this.correo = o["correo"];
+    this.direccion = o["direccion"];
+//this.edad =
+    int.tryParse(o["edad"].toString());
+  }
+
+  @override
+  String toString() {
+    return 'ModeloPersona{dni: $dni, nombre: $nombre, telefono: $telefono, genero: $genero, fecha_nac: $fechaNac, genero: $genero, correo:$correo }';
+}
+
 }
