@@ -74,6 +74,7 @@ def crearBeneficiario():
 def actualizarBeneficiario(id):
     print(id)
     _json=request.json
+    del _json["id"]
     print("VER:",_json["nombre"])
 
     try:
@@ -104,6 +105,7 @@ def actualizarBeneficairioDos(id):
     print(id)    
     _json=request.json
     _json["_id"]=ObjectId(id)
+    del _json["id"]
     print(_json)
     print(ObjectId(id))
     print("VER:",_json["nombre"])

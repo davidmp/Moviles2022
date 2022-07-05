@@ -3,6 +3,7 @@ import 'package:app_vmupeu/drawer/drawer_user_controller.dart';
 import 'package:app_vmupeu/drawer/home_drawer.dart';
 import 'package:app_vmupeu/ui/beneficiario/beneficiario_main.dart';
 import 'package:app_vmupeu/ui/beneficiariobloc/beneficiariob_main.dart';
+import 'package:app_vmupeu/ui/beneficiariofirebloc/beneficiariof_main.dart';
 //import 'package:covidapp/drawer/feedback_screen.dart';
 import 'package:app_vmupeu/ui/help_screen.dart';
 
@@ -60,6 +61,10 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
       } else if (drawerIndex == DrawerIndex.FeedBack) {
         setState(() {
           screenView = MainBeneficiario();
+        });
+      }else if (drawerIndex == DrawerIndex.Help) {
+        setState(() {
+          screenView = MainBeneficiarioFire();
         });
       } else {
         //do in your way......

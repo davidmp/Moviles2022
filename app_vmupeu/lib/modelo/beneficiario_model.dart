@@ -34,6 +34,20 @@ class BeneficiarioModel {
     );
   }
 
+  factory BeneficiarioModel.fromJson2(Map<String, dynamic> map) {
+    return BeneficiarioModel(
+      id: map['id'],
+      dni: map['dni'],
+      nombre: map['nombre'],
+      apellidos: map['apellidos'],
+      genero: map['genero'],
+      fechaNac: map['fecha_nac'],
+      telefono: map['telefono'],
+      correo: map['correo'],
+      direccion: map['direccion'],
+    );
+  }
+
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -59,9 +73,9 @@ class BeneficiarioModel {
     map["telefono"] = telefono;
     map["correo"] = correo;
     map["direccion"] = direccion;
-    if (id != null) {
+    /*if (id != null) {
       map["id"] = id;
-    }
+    }*/
     return map;
   }
 
@@ -76,13 +90,13 @@ class BeneficiarioModel {
     this.telefono = o["telefono"];
     this.correo = o["correo"];
     this.direccion = o["direccion"];
-//this.edad =
-    int.tryParse(o["edad"].toString());
+    //this.edad =
+   // int.tryParse(o["edad"].toString());
   }
 
   @override
   String toString() {
-    return 'ModeloPersona{dni: $dni, nombre: $nombre, telefono: $telefono, genero: $genero, fecha_nac: $fechaNac, genero: $genero, correo:$correo }';
+    return 'ModeloPersona{id: $id,dni: $dni, nombre: $nombre, telefono: $telefono, genero: $genero, fecha_nac: $fechaNac, genero: $genero, correo:$correo }';
 }
 
 }

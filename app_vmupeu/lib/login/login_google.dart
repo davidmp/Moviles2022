@@ -2,6 +2,7 @@ import 'package:app_vmupeu/apis/api_beneficiario.dart';
 import 'package:app_vmupeu/drawer/navigation_home_screen.dart';
 import 'package:app_vmupeu/login/sign_in.dart';
 import 'package:app_vmupeu/modelo/usuario_model.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
@@ -38,6 +39,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Container(
         color: Colors.white,
@@ -68,6 +70,8 @@ class _LoginPageState extends State<LoginPage> {
 
         signInWithGoogle().then((result) {
           if (result != null) {
+            WidgetsFlutterBinding.ensureInitialized();
+            Firebase.initializeApp();
             final api=Provider.of<BeneficiarioApi>(context,listen: false);
             final user=UsuarioModel();
             user.username="davidmp";
